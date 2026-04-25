@@ -2,13 +2,11 @@
 
 import { useEffect } from "react";
 
-const N8N_CHAT_WEBHOOK_URL =
-  process.env.NEXT_PUBLIC_N8N_CHAT_WEBHOOK_URL || "";
+const WEBHOOK_URL =
+  "https://n8n.srv1406804.hstgr.cloud/webhook/detection-ndt-chat/chat";
 
 export default function ChatWidget() {
   useEffect(() => {
-    if (!N8N_CHAT_WEBHOOK_URL) return;
-
     // Load n8n chat CSS
     const link = document.createElement("link");
     link.rel = "stylesheet";
@@ -22,8 +20,7 @@ export default function ChatWidget() {
     script.textContent = `
       import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
       createChat({
-        webhookUrl: '${N8N_CHAT_WEBHOOK_URL}',
-        target: '#n8n-chat-widget',
+        webhookUrl: '${WEBHOOK_URL}',
         mode: 'window',
         showWelcomeScreen: false,
         initialMessages: [
@@ -68,8 +65,6 @@ export default function ChatWidget() {
       script.remove();
     };
   }, []);
-
-  if (!N8N_CHAT_WEBHOOK_URL) return null;
 
   return <div id="n8n-chat-widget" />;
 }
