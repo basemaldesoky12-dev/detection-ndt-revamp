@@ -16,46 +16,48 @@ export default function Home() {
     <>
       {/* ── Hero Section ── */}
       <AnimatedSection>
-        <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-navy-900 to-navy-700">
-          <div className="mx-auto max-w-[1200px] px-6 py-24 w-full">
-            <p className="text-sm font-semibold uppercase tracking-widest text-orange-500">
-              Welding &amp; NDT Experts
-            </p>
+        <section className="flex min-h-[90vh] flex-col justify-between bg-gradient-to-br from-navy-900 to-navy-700">
+          <div className="mx-auto flex max-w-[1200px] flex-1 items-center px-6 py-20 w-full">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-orange-500">
+                Welding &amp; NDT Experts
+              </p>
 
-            <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-tight text-white md:text-6xl">
-              {company.tagline}
-            </h1>
+              <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
+                {company.tagline}
+              </h1>
 
-            <p className="mt-6 max-w-2xl text-lg text-white/80">
-              Over 15 years of trusted inspection, NDT, and welding consulting
-              services across Egypt and the Middle East.
-            </p>
+              <p className="mt-6 max-w-2xl text-lg text-white/80">
+                Over 15 years of trusted inspection, NDT, and welding consulting
+                services across Egypt and the Middle East.
+              </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/services"
-                className="inline-block rounded-lg bg-orange-500 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-orange-600"
-              >
-                Our Services
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-block rounded-lg border border-white/30 bg-white/10 px-8 py-4 font-semibold text-white transition hover:bg-white/20"
-              >
-                Contact Us
-              </Link>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  href="/services"
+                  className="inline-block rounded-lg bg-orange-500 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-orange-600"
+                >
+                  Our Services
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-block rounded-lg border border-white/30 bg-white/10 px-8 py-4 font-semibold text-white transition hover:bg-white/20"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Stats bar */}
-          <div className="absolute inset-x-0 bottom-0 bg-white/5 backdrop-blur">
-            <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-6 px-6 py-8 md:grid-cols-4">
+          <div className="bg-white/5 backdrop-blur">
+            <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-4 px-6 py-6 sm:gap-6 sm:py-8 md:grid-cols-4">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="text-3xl font-extrabold text-white">
+                  <p className="text-2xl font-extrabold text-white sm:text-3xl">
                     {stat.value}
                   </p>
-                  <p className="mt-1 text-sm text-white/70">{stat.label}</p>
+                  <p className="mt-1 text-xs text-white/70 sm:text-sm">{stat.label}</p>
                 </div>
               ))}
             </div>
